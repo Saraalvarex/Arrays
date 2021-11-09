@@ -1,0 +1,56 @@
+<html>
+<head>
+</head>
+    <body>
+        <!-- ME SALE EL ERROR DEL OBJECT-->
+        <h1> ARRAYS.3 </h1><br>
+    <script>
+        let personas = [{nombre: [0]}, {edad: [0]}];
+        let cont=0;
+        while(cont<3){
+            let nombre=prompt("Introduzca nombre: ");
+            personas.push(nombre);
+            let edad=prompt("Introduzca edad: ");
+            personas.push(edad);
+            cont++;
+        }
+
+        //mostrar el nombre con su edad
+        //OJO: ME ESTA IMPRIMIENDO OBJECT, OBJECT 2 VECES
+        function mostrar(){
+            vs = window.open("Array01.html", "", "height=300,width=300");
+            vs.document.write(personas+", ");
+        }
+
+        function mediaEdad(){
+            let suma=0;
+            let media=0;
+            personas.forEach( function(edad,n) {
+            suma+=parseFloat(edad);
+            media=suma/cont;
+            });
+
+            vs = window.open("Array01.html", "", "height=300,width=300");
+            vs.document.write(`La media de todas las edades es: ${media}`);
+        }
+
+        function conocerEdad(){
+            let nombreP=prompt("Introduzca nombre de la persona para conocer su edad, si existe: ");
+                personas.forEach(function(edad, i){
+                    if (nombreP==nombre){
+                        alert("La edad de "+nombre+" es "+edad)
+                    } else {
+                        alert("MENSAJE DE ADVERTENCIA");
+                }
+            });
+        }
+
+
+        
+    </script>
+    <!--Enlace que permita mostrar por pantalla cada nombre con su edad-->
+     <p onclick="mostrar()">Mostrar por pantalla nombre y edad</p>
+     <p onclick="mediaEdad()">Mostrar por pantalla la media de las edades</p>
+     <p onclick="conocerEdad()">Mostrar por pantalla la edad de una persona concreta</p>
+</body>
+</html>

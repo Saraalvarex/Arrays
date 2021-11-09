@@ -1,0 +1,38 @@
+<html>
+<head>
+</head>
+<body>
+    <script>
+        let numAlumnos=prompt("Introduzca numero de alumnos:");
+        let alumno = new Map();
+        let cont=0;
+        let nombre;
+        //el nombre de los alumnos y sus notas finales
+        while (numAlumnos>cont){
+            nombre=prompt("Introduzca nombre del alumno");
+            let nota=prompt("Introduzca nota del alumno");
+            cont++;
+            alumno.set(nombre,nota);
+        }
+        mostrarNota();
+        media();
+
+        function mostrarNota(){
+            for (let [nombre, nota] of alumno){
+                console.log("Nombre alumno: " +nombre+", Nota: "+nota)
+            }
+        }
+        
+        function media(){
+            let suma=0;
+            let media=0;
+            alumno.forEach(function(nota,nombre,alumno){
+            suma+=parseFloat(nota);
+            media=suma/cont;
+            })
+            console.log("La media de las notas de todos los alumnos es: "+media);
+        }
+
+    </script>
+</body>
+</html>
